@@ -18,16 +18,17 @@ public class App {
         System.out.println("Hello World!");
         // Storage storage = new Storage();
         addArticle("Harsh", "Covid Symptoms", "Demo post showing covid symptoms...", "information");
-        addArticle("Abhishek", "Covid treatment", "Demo post showing covid symptoms...", "information");
-        addArticle("Rahul", "How to take care", "Demo post showing covid symptoms...", "self-care");
-        addArticle("Harsh", "What to eat", "Demo post showing covid symptoms...", "self-care");
-        addArticle("Deepak", "Post covid activities", "Demo post showing covid symptoms...", "information");
+        addArticle("Abhishek", "Covid treatment", "Demo post showing covid symptoms...post 2", "information");
+        addArticle("Rahul", "How to take care", "Demo post showing covid symptoms...post 3", "self-care");
+        addArticle("Harsh", "What to eat", "Demo post showing covid symptoms...post 4", "self-care");
+        addArticle("Deepak", "Post covid activities", "Demo post showing covid symptoms...post 5", "information");
         addArticle("Shrishti", "Observing vitals", "Demo post showing covid symptoms...", "random");
         addArticle("Harsh", "Observing vitals", "Demo post showing covid symptoms...", "random");
 
 
         printArticles(Storage.searchArticleByCategory("self-care"));
-        printArticles(Storage.searchArticleByAuthor("Harsh"));
+       // printArticles(Storage.searchArticleByAuthor("Harsh"));
+        
         
 
         try {
@@ -39,6 +40,8 @@ public class App {
             addVital(82, 99, 98.2);
             addVital(85, 99, 98.2);
             addVital(85, 98, 98.2);
+
+            System.out.println(Storage.checkRecentVitalUpdate());
         } catch (Exception e) {
             System.out.println("Something went wrong while adding vitals " + e.toString());
         }
@@ -50,6 +53,8 @@ public class App {
             Date currentDate = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             String dateNow = sdf.format(currentDate);
+            // Date dateCustomObj = sdf.parse("16-06-2021 00:00:00");
+            // String dateCustomString = sdf.format(dateCustomObj);
             VitalPost vitalPost = new VitalPost(heartRate, spo2, temperature, dateNow);
             Storage.vitalStore.add(vitalPost);
         } catch (Exception e) {

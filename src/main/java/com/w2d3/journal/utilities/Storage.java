@@ -22,10 +22,13 @@ public class Storage {
         String timeStamp = vp.timeStamp;
         Date currentDate = new Date();
         long currentTime = currentDate.getTime();
-        Date recentDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(timeStamp);
+        Date recentDate = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse(timeStamp);
         long recentDateTime = recentDate.getTime();
 
+        System.out.println("CT " + currentTime);
+        System.out.println("RDT " + recentDateTime);
         if(Math.subtractExact(currentTime, recentDateTime) >= 7200000){
+           
             return true;
         }
 
